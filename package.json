@@ -1,0 +1,47 @@
+{
+  "name": "my-accesso",
+  "version": "0.0.1",
+  "description": "myAccesso a local auth and verification system.",
+  "author": "Accesso",
+  "main": "appSetUp.js",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "keytar": "^7.9.0"
+  },
+  "devDependencies": {
+    "electron": "^39.2.4",
+    "electron-packager": "^17.1.2",
+    "electron-rebuild": "^3.2.9"
+  },
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild",
+    "build":"electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+
+  "build":{
+    "appId": "com.myaccesso.app",
+    "productName": "myAccesso",
+    "directories": {
+      "output": "dist"
+    },
+    "files":[
+      "**/*",
+      "index.html",
+      "index.css",
+      "authService/**/*",
+      "appSetUp.js",
+      "node_modules/**/*",
+      "!node_modules/electron-rebuild",
+      "authService/auth.js",
+      "authService/localAuth.json"
+    ],
+    "mac":{
+      "category": "public.app-category.utilities",
+      "identity": null,
+      "icon": "./myAccessoLogoICNS.icns"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<html><head>
+    <link href="./index.css" rel="stylesheet">
+    <link href="./myAccessoLogo.png" rel="icon" type="image/png">
+    <link href="./myAccessoLogo.png" rel="shortcut icon" type="image/png">
+    <script src="./authService/auth.js" defer=""></script>
+    
+    <script>
+        async function webStartL(){
+     
+             if(await webStart(document.getElementById(`USR`).value,document.getElementById(`PSW`).value)){
+                 document.getElementById("hT").innerHTML = "Signed In"
+             } else {
+                 document.getElementById("hT").innerHTML = "Sign In Failed"
+     
+             }
+     
+         }
+    
+         async function checkL() {
+            if (await checkL2()){
+                document.getElementById("hT").innerHTML = "Active"
+    
+            } else {
+                document.getElementById("hT").innerHTML = "Not Active"
+    
+            }
+         }
+    
+         async function SO() {
+            
+                logOut()
+    
+                document.getElementById("hT").innerHTML = "myAccesso"
+    
+            
+         }
+     </script>
+    
+    
+    </head>
+    
+    
+    
+    
+    <body>
+        <h1 id="hT">Signed In</h1>
+    <div class="auth">
+        <input placeholder="Username" id="USR">
+    
+    </div>
+    <br>
+    
+    <div class="auth">
+        <input placeholder="Password" type="Password" id="PSW">
+    
+    </div>
+    
+    <br>
+    
+    
+    <div class="auth">
+    <button onclick="webStartL()">Login</button>
+    </div>
+    
+    <br>
+    
+    
+    <div class="auth">
+    <button onclick="checkL()">Check</button>
+    </div>
+    
+    <br>
+    
+    
+    <div class="auth">
+    <button onclick="SO()">logOut</button>
+    </div>
+    
+    
+    
+    
+    
+    
+    </body></html>
