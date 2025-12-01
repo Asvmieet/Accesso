@@ -74,6 +74,7 @@ let data2 = await data;
 
     if (await bcrypt.compare(user,data2.username) && await bcrypt.compare(password,data2.authKey)){
         loadS()
+        sSession()
         return true;
     } else {
         return false;

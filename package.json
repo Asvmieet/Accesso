@@ -12,22 +12,22 @@
   "devDependencies": {
     "electron": "^39.2.4",
     "electron-packager": "^17.1.2",
-    "electron-rebuild": "^3.2.9"
+    "electron-rebuild": "^3.2.9",
+    "electron-builder": "^26.0.12"
   },
   "scripts": {
     "start": "electron .",
     "rebuild": "electron-rebuild",
-    "build":"electron-builder",
+    "build": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
-
-  "build":{
+  "build": {
     "appId": "com.myaccesso.app",
     "productName": "myAccesso",
     "directories": {
       "output": "dist"
     },
-    "files":[
+    "files": [
       "**/*",
       "index.html",
       "index.css",
@@ -38,7 +38,7 @@
       "authService/auth.js",
       "authService/localAuth.json"
     ],
-    "mac":{
+    "mac": {
       "category": "public.app-category.utilities",
       "identity": null,
       "icon": "./myAccessoLogoICNS.icns"
