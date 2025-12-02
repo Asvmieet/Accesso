@@ -101,6 +101,18 @@ async function checkL2() {
 
 
 }
+
+async function key(authKey, username) {
+    const salt = await bcrypt.genSalt(10)
+    data.authKey = await bcrypt.hash(authKey,salt)
+    data.username = await bcrypt.hash(username,salt)
+
+    if (await bcrypt.compare(process.argv[5],data.authKey)){
+
+    fs.writeFileSync(path, JSON.stringify(data,null,2), "utf8");
+
+    }
+}
 // termRun
 
 (async () => {

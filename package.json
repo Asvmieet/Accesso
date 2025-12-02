@@ -11,9 +11,10 @@
   },
   "devDependencies": {
     "electron": "^39.2.4",
+    "electron-builder": "^26.0.12",
     "electron-packager": "^17.1.2",
     "electron-rebuild": "^3.2.9",
-    "electron-builder": "^26.0.12"
+    "electron-reload": "^2.0.0-alpha.1"
   },
   "scripts": {
     "start": "electron .",

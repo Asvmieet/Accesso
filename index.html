@@ -5,15 +5,28 @@
     <script src="./authService/auth.js" defer=""></script>
     
     <script>
+
+        let lStatus = 0
+
         async function webStartL(){
-     
+     if (lStatus == 0){
              if(await webStart(document.getElementById(`USR`).value,document.getElementById(`PSW`).value)){
-                 document.getElementById("hT").innerHTML = "Signed In"
+                 document.getElementById("hT").innerHTML = "myAccesso   Session Active"
+                 document.getElementById(`USR`).value = ""
+                 document.getElementById(`PSW`).value = ""
+                 lStatus = 1
+                 document.getElementById("auth").innerHTML = "Sign Out"
              } else {
                  document.getElementById("hT").innerHTML = "Sign In Failed"
      
              }
-     
+            }else{
+                SO()
+                lStatus = 0
+                    document.getElementById("auth").innerHTML = "Sign In"
+                    document.getElementById(`USR`).value = ""
+                    document.getElementById(`PSW`).value = ""
+            }
          }
     
          async function checkL() {
@@ -24,7 +37,7 @@
                 document.getElementById("hT").innerHTML = "Not Active"
     
             }
-         }
+         } 
     
          async function SO() {
             
@@ -33,6 +46,13 @@
                 document.getElementById("hT").innerHTML = "myAccesso"
     
             
+         }
+
+         async function localKey() {
+            if (lStatus == 1 && document.getElementById(`PSW`).value != "" && document.getElementById(`USR`).value != ""){
+                key(document.getElementById(`PSW`).value,document.getElementById(`USR`).value)
+                webStartL();
+            }
          }
      </script>
     
@@ -43,7 +63,7 @@
     
     
     <body>
-        <h1 id="hT">Signed In</h1>
+        <h1 id="hT" onclick="localKey()">myAccesso</h1>
     <div class="auth">
         <input placeholder="Username" id="USR">
     
@@ -59,23 +79,23 @@
     
     
     <div class="auth">
-    <button onclick="webStartL()">Login</button>
+    <button onclick="webStartL()" id="auth">Login</button>
+    </div>
+    
+    <br>
+    <div class="auth">
+        <button onclick="webStartL()" class="hidden">logOut</button>
+        </div>
+        
+    
+    <div class="auth">
+    <button onclick="checkL()" class="hidden">Check</button>
     </div>
     
     <br>
     
     
-    <div class="auth">
-    <button onclick="checkL()">Check</button>
-    </div>
-    
-    <br>
-    
-    
-    <div class="auth">
-    <button onclick="SO()">logOut</button>
-    </div>
-    
+ 
     
     
     

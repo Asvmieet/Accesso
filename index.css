@@ -72,3 +72,7 @@ input::placeholder{
     font-style: normal;
     
 }
+
+.hidden{
+    visibility: hidden;
+}
