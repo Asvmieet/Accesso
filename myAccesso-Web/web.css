@@ -16,6 +16,14 @@ h1{
 
 }
 
+h2{
+    font-size: 30px;
+    text-align: center;
+    color: #f4f4f9;
+    font-family: "Montserrat";
+
+}
+
 textarea{
     text-align: center;
     align-self: center;
